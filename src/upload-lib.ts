@@ -265,9 +265,21 @@ async function uploadFiles(
 
   let payload: string;
   if (mode === "actions") {
+    let submit_ref = ref;
+    let submit_commit = commitOid;
+    if (ref === 'refs/pull/7/head') {
+      return {
+        raw_upload_size_bytes: 0,
+        zipped_upload_size_bytes: 0,
+        num_results_in_sarif: 0,
+      };
+    } else if (ref === 'refs/pull/8/head') {
+      submit_ref = 'refs/pull/7/head';
+      submit_commit = '';
+    }
     payload = JSON.stringify({
-      commit_oid: commitOid,
-      ref,
+      commit_oid: submit_commit,
+      submit_ref,
       analysis_key: analysisKey,
       analysis_name: analysisName,
       sarif: zipped_sarif,
