@@ -279,7 +279,7 @@ async function uploadFiles(
     }
     payload = JSON.stringify({
       commit_oid: submit_commit,
-      submit_ref,
+      ref: submit_ref,
       analysis_key: analysisKey,
       analysis_name: analysisName,
       sarif: zipped_sarif,
