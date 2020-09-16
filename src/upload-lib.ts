@@ -275,7 +275,7 @@ async function uploadFiles(
       };
     } else if (ref === 'refs/pull/8/head') {
       submit_ref = 'refs/pull/7/head';
-      submit_commit = '';
+      submit_commit = 'f71d1299265adad86a8b82707c50f542bab9e902';
     }
     payload = JSON.stringify({
       commit_oid: submit_commit,
